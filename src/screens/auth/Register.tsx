@@ -1,13 +1,14 @@
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
+import {Container} from 'components/Container';
 
 type Props = {};
 
 const Register = ({}: Props) => {
   return (
-    <View>
-      <Text>Register</Text>
-    </View>
+    <Container>
+      <Text>Register Screen</Text>
+    </Container>
   );
 };
 
