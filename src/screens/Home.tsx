@@ -1,10 +1,11 @@
+import React, {FC} from 'react';
+
 import {Text} from 'react-native';
-import React from 'react';
 import {Container} from 'components/Container';
 
-type Props = {};
+interface HomeProps {}
 
-const Home = ({}: Props) => {
+const Home: FC<HomeProps> = ({}) => {
   return (
     <Container>
       <Text>Home Screen</Text>
