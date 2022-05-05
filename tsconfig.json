@@ -7,6 +7,7 @@
       "*": ["./*"],
       "@components": ["./components/*"],
       "@navigation": ["./navigation/*"],
+      "@providers": ["./providers/*"],
       "@screens": ["./screens/*"],
       "@utils": ["./utils/*"],
     },

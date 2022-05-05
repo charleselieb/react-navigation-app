@@ -10,6 +10,11 @@ module.exports = {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',
+        'no-spaced-func': 'off',
+        '@typescript-eslint/no-empty-function': [
+          'error',
+          {allow: ['arrowFunctions']},
+        ],
       },
     },
   ],
