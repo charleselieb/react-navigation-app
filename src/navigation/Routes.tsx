@@ -1,19 +1,19 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {Container} from 'components/Container';
-import {ActivityIndicator, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AuthContext} from 'providers/AuthProvider';
 import AuthStack from './AuthStack';
-import {Button} from 'components/Button';
+import AppTabs from './AppTabs';
+import Loading from 'components/Loading';
 
 type RoutesProps = {};
 
 const Routes: FC<RoutesProps> = ({}) => {
-  const {user, login, logout} = useContext(AuthContext);
+  const {user, login} = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  // Fake user login
   useEffect(() => {
     AsyncStorage.getItem('user')
       .then(userString => {
@@ -31,23 +31,12 @@ const Routes: FC<RoutesProps> = ({}) => {
   }, []);
 
   if (isLoading) {
-    return (
-      <Container>
-        <ActivityIndicator size="large" />
-      </Container>
-    );
+    return <Loading />;
   }
 
   return (
     <NavigationContainer>
-      {user ? (
-        <Container>
-          <Text>Username: {user.username}</Text>
-          <Button text="logout" onPress={logout} />
-        </Container>
-      ) : (
-        <AuthStack />
-      )}
+      {user ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );
 };

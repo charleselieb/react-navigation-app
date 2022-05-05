@@ -27,7 +27,10 @@ const AuthProvider: FC<AuthProviderProps> = ({children}) => {
           setUser(staticUser);
           AsyncStorage.setItem('user', JSON.stringify(user));
         },
-        logout: () => AsyncStorage.removeItem('user'),
+        logout: () => {
+          setUser(null);
+          AsyncStorage.removeItem('user');
+        },
       }}>
       {children}
     </AuthContext.Provider>
