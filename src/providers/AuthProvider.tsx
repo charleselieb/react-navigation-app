@@ -34,4 +34,5 @@ const AuthProvider: FC<AuthProviderProps> = ({children}) => {
   );
 };
 
+export {AuthContext};
 export default AuthProvider;
